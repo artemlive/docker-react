@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t artemlive/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run artemlive/docker-react npm run test -- --coverage
